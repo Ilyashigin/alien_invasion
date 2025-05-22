@@ -89,21 +89,18 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_bu
     
     ship.blitme()
     
-    # Отрисовка всех пришельцев и полоски здоровья для босса
+    
     for alien in aliens.sprites():
         alien.blitme()
         if isinstance(alien, Boss):
-            # Рисуем полоску здоровья для босса
             health_ratio = alien.current_health / alien.max_health
             health_bar_length = alien.health_bar_length
             health_bar_height = alien.health_bar_height
             
-            # Фон полоски здоровья
             pygame.draw.rect(screen, alien.health_bar_background, 
                            (alien.rect.x, alien.rect.y - 20, 
                             health_bar_length, health_bar_height))
             
-            # Основная полоска здоровья (текущий уровень)
             pygame.draw.rect(screen, alien.health_bar_color, 
                            (alien.rect.x, alien.rect.y - 20, 
                             health_bar_length * health_ratio, health_bar_height))

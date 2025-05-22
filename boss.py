@@ -15,7 +15,7 @@ class Boss(Alien):
         
     def blitme(self):
         self.screen.blit(self.image, self.rect)
-        # Рисуем полоску здоровья
+        
         health_ratio = self.current_health / self.max_health
         pygame.draw.rect(self.screen, self.health_bar_background, 
                          (self.rect.x, self.rect.y - 15, 
